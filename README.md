@@ -2,14 +2,6 @@
 
 Real-time gamepad, keyboard, and mouse input overlay for OBS Studio.
 
-
-## Screenshots
-
-Add images to these folders and update the links:
-
-- `assets/screenshots/`
-- `assets/gifs/`
-
 ## Install
 
 This is a native OBS plugin. You install it like any other plugin:
