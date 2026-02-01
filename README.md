@@ -2,19 +2,8 @@
 
 Real-time gamepad, keyboard, and mouse input overlay for OBS Studio.
 
-Clean, readable, and themeable overlays that show exactly what a streamer is pressing.
 
-This project provides a native OBS source and a theme system so streamers can drop in new looks without changing code.
-
-## Features
-
-- Native OBS source for low-latency input display
-- Gamepad, keyboard, and mouse support
-- Theme packs with JSON manifest and SVGZ assets
-- Per-scene profiles with size, opacity, and placement controls
-- Hotkey to show or hide the overlay
-
-## Screenshots and GIFs
+## Screenshots
 
 Add images to these folders and update the links:
 
@@ -81,6 +70,7 @@ Prerequisites:
 - CMake 3.21+
 - OBS Studio development files
 - C++17 compiler
+- Xcode (for MacOS)
 
 Build (macOS example):
 
