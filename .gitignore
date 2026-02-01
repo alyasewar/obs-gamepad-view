@@ -1,0 +1,12 @@
+build/
+.deps/
+obs-studio/
+.DS_Store
+.idea/
+.vscode/
+*.user
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak

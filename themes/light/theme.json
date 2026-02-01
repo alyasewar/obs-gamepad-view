@@ -1,0 +1,34 @@
+{
+  "name": "Light",
+  "id": "light",
+  "version": "1.0.0",
+  "author": "OBS Input Visualizer",
+  "description": "Clean, neutral light theme.",
+  "assets": {
+    "layout": "assets/template.svgz",
+    "buttons": "assets/abxy.svgz",
+    "dpad": "assets/dpad.svgz",
+    "sticks": "assets/stick.svgz",
+    "bumper": "assets/bumper.svgz",
+    "trigger": "assets/trigger.svgz",
+    "start_select": "assets/start-select.svgz",
+    "quadrant": "assets/quadrant.svgz",
+    "disconnected": "assets/disconnected.svgz"
+  },
+  "palette": {
+    "background": "#f4f6f8",
+    "surface": "#ffffff",
+    "stroke": "#1f2933",
+    "accent": "#1b6ef3",
+    "text": "#0b0f14",
+    "pressed": "#1b6ef3"
+  },
+  "typography": {
+    "font": "Satoshi",
+    "size": 14
+  },
+  "animation": {
+    "pressFadeMs": 120,
+    "releaseFadeMs": 160
+  }
+}

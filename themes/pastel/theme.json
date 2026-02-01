@@ -1,0 +1,34 @@
+{
+  "name": "Pastel",
+  "id": "pastel",
+  "version": "1.0.0",
+  "author": "OBS Input Visualizer",
+  "description": "Soft pastel palette with low contrast.",
+  "assets": {
+    "layout": "assets/template.svgz",
+    "buttons": "assets/abxy.svgz",
+    "dpad": "assets/dpad.svgz",
+    "sticks": "assets/stick.svgz",
+    "bumper": "assets/bumper.svgz",
+    "trigger": "assets/trigger.svgz",
+    "start_select": "assets/start-select.svgz",
+    "quadrant": "assets/quadrant.svgz",
+    "disconnected": "assets/disconnected.svgz"
+  },
+  "palette": {
+    "background": "#f7f1ff",
+    "surface": "#ffffff",
+    "stroke": "#3a3f52",
+    "accent": "#7c9cff",
+    "text": "#202432",
+    "pressed": "#ff9fcf"
+  },
+  "typography": {
+    "font": "Satoshi",
+    "size": 14
+  },
+  "animation": {
+    "pressFadeMs": 120,
+    "releaseFadeMs": 160
+  }
+}

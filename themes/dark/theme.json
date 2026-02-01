@@ -1,0 +1,34 @@
+{
+  "name": "Dark",
+  "id": "dark",
+  "version": "1.0.0",
+  "author": "OBS Input Visualizer",
+  "description": "High-contrast dark theme.",
+  "assets": {
+    "layout": "assets/template.svgz",
+    "buttons": "assets/abxy.svgz",
+    "dpad": "assets/dpad.svgz",
+    "sticks": "assets/stick.svgz",
+    "bumper": "assets/bumper.svgz",
+    "trigger": "assets/trigger.svgz",
+    "start_select": "assets/start-select.svgz",
+    "quadrant": "assets/quadrant.svgz",
+    "disconnected": "assets/disconnected.svgz"
+  },
+  "palette": {
+    "background": "#14161b",
+    "surface": "#1f232b",
+    "stroke": "#e6e9ef",
+    "accent": "#4e8cff",
+    "text": "#f2f4f8",
+    "pressed": "#4e8cff"
+  },
+  "typography": {
+    "font": "Satoshi",
+    "size": 14
+  },
+  "animation": {
+    "pressFadeMs": 120,
+    "releaseFadeMs": 160
+  }
+}
