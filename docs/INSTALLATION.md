@@ -15,10 +15,15 @@ This plugin installs like any other native OBS source.
 
 1. Download the latest release ZIP from GitHub.
 2. Close OBS.
-3. Copy `input_visualizer.so` into:
-   - `/Library/Application Support/obs-studio/plugins/input-visualizer/`
+3. Copy `input-visualizer.plugin` into one of:
+   - `~/Library/Application Support/obs-studio/plugins/` (just you)
+   - `/Library/Application Support/obs-studio/plugins/` (all users)
 4. Reopen OBS.
 5. Add the source: `+` -> `Input Visualizer`.
+
+OBS will not load a bare `.so` on macOS; it has to be the `.plugin` bundle, with
+the binary at `Contents/MacOS/input-visualizer`. Building from source produces
+the bundle via `cmake/package-macos.sh`.
 
 ## Linux
 
@@ -34,5 +39,9 @@ This plugin installs like any other native OBS source.
 ## Notes
 
 - If the source does not appear, check `Help -> Log Files -> View Current Log` in OBS.
-- Themes are stored in the `themes/` directory inside the plugin data folder.
-- If you update themes, rebuild to regenerate `.png` assets from `.svgz`.
+- Controller sheets live in `themes/<theme>/<pad>/` inside the plugin data
+  folder, with the geometry manifests in `controllers/<pad>/`.
+- If you edit themes or controller art, rebuild to re-render those sheets. See
+  `docs/THEMES.md`.
+- The keyboard and mouse overlay needs Accessibility permission on macOS; the
+  gamepad overlay does not.

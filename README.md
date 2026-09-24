@@ -1,89 +1,129 @@
 # OBS Input Visualizer
 
-Real-time gamepad, keyboard, and mouse input overlay for OBS Studio.
+Show your controller on stream. Add one source to OBS and your button presses,
+stick movement and trigger pulls appear live.
+
+![Xbox and DualSense layouts in the dark, light and pastel themes](docs/preview.png)
+
+- **Xbox and PlayStation layouts**, switched automatically to match the pad you
+  plug in.
+- **Analog triggers and sticks** — a half-pulled trigger shows as half lit, not
+  just on or off.
+- **Three themes**, and a transparent background so it drops straight onto your
+  scene.
+- **Keyboard and mouse** overlay too, if you want it.
+
+Currently macOS only. The renderer is cross-platform; only the input capture
+still needs a Windows backend.
+
+---
 
 ## Install
 
-This is a native OBS plugin. You install it like any other plugin:
-
-### Windows
-
-1. Download the latest release ZIP.
-2. Extract it into:
-   - `C:\Program Files\obs-studio\` (or your OBS install folder)
-3. Start OBS and add the source: `+` -> `Input Visualizer`.
-
-### macOS
-
-1. Download the latest release ZIP.
-2. Copy `InputVisualizer.plugin` to:
-   - `/Library/Application Support/obs-studio/plugins/`
-3. Start OBS and add the source: `+` -> `Input Visualizer`.
-
-### Linux
-
-1. Download the latest release tar.gz.
-2. Copy `input_visualizer.so` to:
-   - `/usr/lib/obs-plugins/`
-3. Copy the data folder to:
-   - `/usr/share/obs/obs-plugins/input-visualizer/`
-4. Start OBS and add the source: `+` -> `Input Visualizer`.
-
-## Usage
-
-1. Add a new source: `+` -> `Input Visualizer`.
-2. Choose a device (gamepad, keyboard, mouse).
-3. Pick a theme.
-4. Adjust size, opacity, and position in the scene.
-
-## Theme Packs
-
-Themes live in `themes/` and each theme has a `theme.json` manifest and assets.
-
-Example structure:
+Grab the latest release, unzip it, and put `input-visualizer.plugin` here:
 
 ```
-themes/
-  light/
-    theme.json
-    assets/
-  dark/
-    theme.json
-    assets/
-  pastel/
-    theme.json
-    assets/
+~/Library/Application Support/obs-studio/plugins/
 ```
 
-## Build
+Create the `plugins` folder if it isn't there. To install for every user on the
+machine, use `/Library/Application Support/obs-studio/plugins/` instead.
 
-Prerequisites:
+Then restart OBS.
 
-- CMake 3.21+
-- OBS Studio development files
-- C++17 compiler
-- Xcode (for MacOS)
+> Building from source instead? See [docs/BUILDING.md](docs/BUILDING.md).
 
-Build (macOS example):
+## Add it to your scene
 
-```
-cmake -S . -B build
-cmake --build build
-```
+1. In OBS, click **+** under Sources.
+2. Pick **Input Visualizer**.
+3. Give it a name and click **OK**.
 
-## SVGZ Conversion
+That's it. Plug in a controller and it appears.
 
-The build step converts `.svgz` assets to `.png` for reliable rendering.
+**No controller handy?** Turn on **Preview mode** in the source settings. It
+cycles through every button so you can position and style the overlay first,
+then switch it off when you're done.
 
-Dependencies:
+## Settings
 
-- `rsvg-convert` (recommended), or
-- macOS `qlmanage`
+Right-click the source → **Properties**.
+
+### Controller
+
+| Setting | What it does |
+|---|---|
+| **Layout** | Leave on `Auto-detect` and it follows whatever you plug in. Set it to `Xbox` or `PlayStation 5` to lock one. |
+| **Detected** | Read-only. Tells you which controller OBS actually sees, so you can tell whether auto-detect got it right. |
+
+### Appearance
+
+| Setting | What it does |
+|---|---|
+| **Theme** | `Dark`, `Light`, or `Pastel`. |
+| **Size** | How big the overlay is. `0.5` gives a 500x340 source. You can also just drag the corners in your scene. |
+| **Opacity** | Fade the whole thing out. |
+| **Draw backdrop** | Adds a solid panel behind the controller. Off by default, so the background stays transparent. |
+
+### Behaviour
+
+| Setting | What it does |
+|---|---|
+| **Hide when no controller is connected** | The overlay fades away when you unplug. Off by default, so the pad stays visible while you set your scene up. |
+| **Preview mode** | Animates every input without a controller. Handy for positioning. |
+
+### Keyboard & mouse
+
+Off by default. Tick the box to add a WASD + modifier + mouse-button strip below
+the pad.
+
+This one needs permission: **System Settings → Privacy & Security →
+Accessibility**, then add OBS and restart it. The controller overlay works
+without this — only the keyboard and mouse part needs it.
+
+## Troubleshooting
+
+**The source isn't in the + menu.**
+The plugin didn't load. Check the layout is exactly
+`…/obs-studio/plugins/input-visualizer.plugin/Contents/MacOS/input-visualizer` —
+a loose `.so` file will not be picked up. Then check
+**Help → Log Files → View Current Log** and search for `input-visualizer`.
+
+**Nothing appears when I press buttons.**
+Check the **Detected** line in Properties. If it says no controller is
+connected, macOS isn't seeing the pad — try re-pairing it in Bluetooth settings.
+Xbox and DualSense pads work over both USB and Bluetooth.
+
+**The wrong controller is showing.**
+Set **Layout** to the one you want instead of `Auto-detect`. Third-party pads
+often report themselves generically, and fall back to the Xbox layout.
+
+**Keyboard keys don't light up.**
+That's the Accessibility permission above. After granting it, fully quit and
+reopen OBS — it's only read at startup.
+
+**The overlay is cut off or stretched.**
+It keeps its aspect ratio and centres itself, so if the source box is the wrong
+shape you'll see gaps. Right-click the source → **Transform** → **Fit to
+screen**, or reset the transform.
+
+## Customising
+
+Themes are just colours, and adding one means writing a palette — no redrawing.
+Controller art is plain SVG you can edit.
+
+See [docs/THEMES.md](docs/THEMES.md) for the palette names, the layout format,
+and how to add your own theme or controller.
+
+## More
+
+- [Installing](docs/INSTALLATION.md)
+- [Building from source](docs/BUILDING.md)
+- [Every source setting](docs/OBS-SOURCE.md)
+- [Themes and controller art](docs/THEMES.md)
+- [Roadmap](docs/ROADMAP.md)
 
 ## License
 
-MIT
-
-## Third-Party Assets
-
-See `docs/THIRD-PARTY.md` for license details.
+MIT. All controller art is original to this project — see
+[docs/THIRD-PARTY.md](docs/THIRD-PARTY.md).

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  DualSense overlay sheet (pressed-state art). Same contract as the Xbox sheet:
+  rows 0..680 are pixel-aligned with base.svg so src rect == dst rect, and rows
+  700..1000 are the spare strip for sprites the renderer places itself (stick
+  caps) or whose in-place boxes would collide (bumper vs trigger arcs). Shoulder
+  sprites are masked by the shell so a pressed bumper cannot paint over the body.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <style id="iv-palette">
+    .shell{fill:#2b303b}
+    .shell-hi{fill:#39404e}
+    .shell-lo{fill:#20242d}
+    .recess{fill:#171a21}
+    .cap{fill:#5b6478}
+    .cap-lo{fill:#434b5c}
+    .ink{fill:#cdd3e0}
+    .hot{fill:#4e8cff}
+    .hot-hi{fill:#8fb6ff}
+    .on-hot{fill:#0b1020}
+    .s-cap{stroke:#5b6478;fill:none}
+    .s-cap-lo{stroke:#434b5c;fill:none}
+    .s-shell-lo{stroke:#20242d;fill:none}
+    .s-ink{stroke:#cdd3e0;fill:none}
+    .s-on-hot{stroke:#0b1020;fill:none}
+    .s-hot{stroke:#4e8cff;fill:none}
+    .s-hot-hi{stroke:#8fb6ff;fill:none}
+  </style>
+
+  <defs>
+    <path id="ps-half-o" d="M500 152
+      C596 148 664 156 718 174
+      C804 202 858 252 864 312
+      C868 364 846 398 818 418
+      C840 482 844 560 804 612
+      C772 654 710 652 682 610
+      C644 554 622 490 606 450
+      C594 420 566 454 500 454 Z"/>
+    <path id="ps-bumper-o" d="M636 152 C690 156 740 170 812 212"/>
+    <path id="ps-trigger-o" d="M642 128 C696 132 744 146 816 188"/>
+
+    <mask id="ps-outside" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="1000">
+      <rect x="0" y="0" width="1000" height="1000" fill="#fff"/>
+      <g fill="#000">
+        <use href="#ps-half-o"/>
+        <use href="#ps-half-o" transform="translate(1000,0) scale(-1,1)"/>
+      </g>
+    </mask>
+  </defs>
+
+  <!-- ===== in-place: touchpad pressed ===== -->
+  <g>
+    <rect class="hot" x="422" y="188" width="156" height="100" rx="16"/>
+    <rect class="hot-hi" x="428" y="194" width="144" height="88" rx="12"/>
+  </g>
+
+  <!-- ===== in-place: d-pad pressed ===== -->
+  <g class="hot">
+    <rect x="313" y="210" width="34" height="34" rx="7"/>
+    <rect x="313" y="280" width="34" height="34" rx="7"/>
+    <rect x="278" y="245" width="34" height="34" rx="7"/>
+    <rect x="348" y="245" width="34" height="34" rx="7"/>
+  </g>
+
+  <!-- ===== in-place: face buttons pressed ===== -->
+  <g>
+    <circle class="hot" cx="670" cy="208" r="31"/>
+    <circle class="hot-hi" cx="670" cy="208" r="25"/>
+    <circle class="hot" cx="616" cy="262" r="31"/>
+    <circle class="hot-hi" cx="616" cy="262" r="25"/>
+    <circle class="hot" cx="724" cy="262" r="31"/>
+    <circle class="hot-hi" cx="724" cy="262" r="25"/>
+    <circle class="hot" cx="670" cy="316" r="31"/>
+    <circle class="hot-hi" cx="670" cy="316" r="25"/>
+    <g class="s-on-hot" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M670 195 L682 216 L658 216 Z"/>
+      <rect x="605" y="251" width="22" height="22" rx="3"/>
+      <circle cx="724" cy="262" r="11"/>
+      <path d="M661 307 L679 325 M679 307 L661 325"/>
+    </g>
+  </g>
+
+  <!-- ===== in-place: create / options / PS pressed ===== -->
+  <g class="hot">
+    <rect x="382" y="172" width="24" height="34" rx="9"/>
+    <rect x="594" y="172" width="24" height="34" rx="9"/>
+    <circle cx="500" cy="352" r="20"/>
+  </g>
+
+  <!-- ===== strip: stick caps ===== -->
+  <g>
+    <circle class="cap-lo" cx="98" cy="758" r="52"/>
+    <circle class="cap" cx="98" cy="754" r="43"/>
+    <circle class="cap-lo" cx="98" cy="754" r="24"/>
+  </g>
+  <g>
+    <circle class="hot" cx="238" cy="758" r="52"/>
+    <circle class="hot-hi" cx="238" cy="754" r="43"/>
+    <circle class="hot" cx="238" cy="754" r="24"/>
+  </g>
+
+  <!-- ===== strip: bumpers pressed (dst 174,138 and 622,138) ===== -->
+  <g transform="translate(166,562)">
+    <g mask="url(#ps-outside)" class="s-hot" stroke-width="28" stroke-linecap="round">
+      <use href="#ps-bumper-o" transform="translate(1000,0) scale(-1,1)"/>
+    </g>
+  </g>
+  <g transform="translate(-62,562)">
+    <g mask="url(#ps-outside)" class="s-hot" stroke-width="28" stroke-linecap="round">
+      <use href="#ps-bumper-o"/>
+    </g>
+  </g>
+
+  <!-- ===== strip: triggers pressed (dst 168,112 and 626,112) ===== -->
+  <g transform="translate(172,688)">
+    <g mask="url(#ps-outside)" class="s-hot-hi" stroke-width="32" stroke-linecap="round">
+      <use href="#ps-trigger-o" transform="translate(1000,0) scale(-1,1)"/>
+    </g>
+  </g>
+  <g transform="translate(-66,688)">
+    <g mask="url(#ps-outside)" class="s-hot-hi" stroke-width="32" stroke-linecap="round">
+      <use href="#ps-trigger-o"/>
+    </g>
+  </g>
+</svg>

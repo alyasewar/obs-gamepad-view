@@ -1,34 +1,26 @@
 {
-  "name": "Pastel",
   "id": "pastel",
-  "version": "1.0.0",
+  "name": "Pastel",
+  "version": "2.0.0",
   "author": "OBS Input Visualizer",
-  "description": "Soft pastel palette with low contrast.",
-  "assets": {
-    "layout": "assets/template.svgz",
-    "buttons": "assets/abxy.svgz",
-    "dpad": "assets/dpad.svgz",
-    "sticks": "assets/stick.svgz",
-    "bumper": "assets/bumper.svgz",
-    "trigger": "assets/trigger.svgz",
-    "start_select": "assets/start-select.svgz",
-    "quadrant": "assets/quadrant.svgz",
-    "disconnected": "assets/disconnected.svgz"
-  },
+  "description": "Muted purple shell with a pink accent.",
   "palette": {
-    "background": "#f7f1ff",
-    "surface": "#ffffff",
-    "stroke": "#3a3f52",
-    "accent": "#7c9cff",
-    "text": "#202432",
-    "pressed": "#ff9fcf"
-  },
-  "typography": {
-    "font": "Satoshi",
-    "size": 14
+    "shell": "#3a3350",
+    "shellHi": "#4a4266",
+    "shellLo": "#2b2540",
+    "recess": "#211c33",
+    "cap": "#b3a3e8",
+    "capLo": "#8b7cc4",
+    "ink": "#f6f2ff",
+    "accent": "#ff9ecb",
+    "accentHi": "#ffc4de",
+    "onAccent": "#3a1f2e",
+    "background": "#2b2540cc"
   },
   "animation": {
-    "pressFadeMs": 120,
-    "releaseFadeMs": 160
+    "pressFadeMs": 60,
+    "releaseFadeMs": 140,
+    "connectFadeMs": 220,
+    "disconnectFadeMs": 320
   }
 }

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" width="1000" height="680">
+  <style id="iv-palette">
+    .shell{fill:#2b303b}
+    .shell-hi{fill:#39404e}
+    .shell-lo{fill:#20242d}
+    .recess{fill:#171a21}
+    .cap{fill:#5b6478}
+    .cap-lo{fill:#434b5c}
+    .ink{fill:#cdd3e0}
+    .hot{fill:#4e8cff}
+    .hot-hi{fill:#8fb6ff}
+    .s-cap{stroke:#5b6478;fill:none}
+    .s-cap-lo{stroke:#434b5c;fill:none}
+    .s-shell-lo{stroke:#20242d;fill:none}
+    .s-ink{stroke:#cdd3e0;fill:none}
+    .s-hot{stroke:#4e8cff;fill:none}
+  </style>
+
+  <defs>
+    <path id="ps-half" d="M500 152
+      C596 148 664 156 718 174
+      C804 202 858 252 864 312
+      C868 364 846 398 818 418
+      C840 482 844 560 804 612
+      C772 654 710 652 682 610
+      C644 554 622 490 606 450
+      C594 420 566 454 500 454 Z"/>
+    <path id="ps-bumper" d="M636 152 C690 156 740 170 812 212"/>
+    <path id="ps-trigger" d="M642 128 C696 132 744 146 816 188"/>
+  </defs>
+
+  <!-- ===== triggers (rest) ===== -->
+  <g class="s-shell-lo" stroke-width="32" stroke-linecap="round">
+    <use href="#ps-trigger"/>
+    <use href="#ps-trigger" transform="translate(1000,0) scale(-1,1)"/>
+  </g>
+
+  <!-- ===== bumpers (rest) ===== -->
+  <g class="s-cap-lo" stroke-width="28" stroke-linecap="round">
+    <use href="#ps-bumper"/>
+    <use href="#ps-bumper" transform="translate(1000,0) scale(-1,1)"/>
+  </g>
+
+  <!-- ===== shell ===== -->
+  <g>
+    <g class="shell">
+      <use href="#ps-half"/>
+      <use href="#ps-half" transform="translate(1000,0) scale(-1,1)"/>
+    </g>
+    <path class="shell-hi" opacity="0.38" d="M316 180 C400 158 600 158 684 180 C600 200 558 206 500 206 C442 206 400 200 316 180 Z"/>
+  </g>
+
+  <!-- ===== touchpad ===== -->
+  <g>
+    <rect class="shell-lo" x="422" y="188" width="156" height="100" rx="16"/>
+    <rect class="shell-hi" x="428" y="194" width="144" height="88" rx="12"/>
+  </g>
+
+  <!-- ===== light bar (always lit) ===== -->
+  <g class="hot">
+    <rect x="415" y="200" width="6" height="76" rx="3"/>
+    <rect x="579" y="200" width="6" height="76" rx="3"/>
+  </g>
+
+  <!-- ===== create / options (rest) ===== -->
+  <g class="cap">
+    <rect x="382" y="172" width="24" height="34" rx="9"/>
+    <rect x="594" y="172" width="24" height="34" rx="9"/>
+  </g>
+
+  <!-- ===== recesses ===== -->
+  <g class="recess">
+    <circle cx="392" cy="446" r="64"/>
+    <circle cx="608" cy="446" r="64"/>
+  </g>
+
+  <!-- ===== d-pad (rest): four discrete arms ===== -->
+  <g>
+    <g class="cap-lo">
+      <rect x="313" y="210" width="34" height="34" rx="7"/>
+      <rect x="313" y="280" width="34" height="34" rx="7"/>
+      <rect x="278" y="245" width="34" height="34" rx="7"/>
+      <rect x="348" y="245" width="34" height="34" rx="7"/>
+    </g>
+    <g class="cap">
+      <rect x="317" y="214" width="26" height="26" rx="5"/>
+      <rect x="317" y="284" width="26" height="26" rx="5"/>
+      <rect x="282" y="249" width="26" height="26" rx="5"/>
+      <rect x="352" y="249" width="26" height="26" rx="5"/>
+    </g>
+  </g>
+
+  <!-- ===== face buttons (rest) ===== -->
+  <g>
+    <circle class="cap-lo" cx="670" cy="208" r="31"/>
+    <circle class="cap" cx="670" cy="205" r="27"/>
+    <circle class="cap-lo" cx="616" cy="262" r="31"/>
+    <circle class="cap" cx="616" cy="259" r="27"/>
+    <circle class="cap-lo" cx="724" cy="262" r="31"/>
+    <circle class="cap" cx="724" cy="259" r="27"/>
+    <circle class="cap-lo" cx="670" cy="316" r="31"/>
+    <circle class="cap" cx="670" cy="313" r="27"/>
+    <!-- glyphs -->
+    <g class="s-ink" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M670 192 L682 213 L658 213 Z"/>
+      <rect x="605" y="248" width="22" height="22" rx="3"/>
+      <circle cx="724" cy="259" r="11"/>
+      <path d="M661 304 L679 322 M679 304 L661 322"/>
+    </g>
+  </g>
+
+  <!-- ===== PS button (rest) ===== -->
+  <g>
+    <circle class="cap-lo" cx="500" cy="352" r="20"/>
+    <circle class="cap" cx="500" cy="350" r="16"/>
+  </g>
+</svg>
