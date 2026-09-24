@@ -1,34 +1,26 @@
 {
-  "name": "Light",
   "id": "light",
-  "version": "1.0.0",
+  "name": "Light",
+  "version": "2.0.0",
   "author": "OBS Input Visualizer",
-  "description": "Clean, neutral light theme.",
-  "assets": {
-    "layout": "assets/template.svgz",
-    "buttons": "assets/abxy.svgz",
-    "dpad": "assets/dpad.svgz",
-    "sticks": "assets/stick.svgz",
-    "bumper": "assets/bumper.svgz",
-    "trigger": "assets/trigger.svgz",
-    "start_select": "assets/start-select.svgz",
-    "quadrant": "assets/quadrant.svgz",
-    "disconnected": "assets/disconnected.svgz"
-  },
+  "description": "Pale shell for light scenes and bright overlays.",
   "palette": {
-    "background": "#f4f6f8",
-    "surface": "#ffffff",
-    "stroke": "#1f2933",
-    "accent": "#1b6ef3",
-    "text": "#0b0f14",
-    "pressed": "#1b6ef3"
-  },
-  "typography": {
-    "font": "Satoshi",
-    "size": 14
+    "shell": "#e2e6ec",
+    "shellHi": "#f4f6fa",
+    "shellLo": "#b4bcc9",
+    "recess": "#78828f",
+    "cap": "#99a2b2",
+    "capLo": "#6d7787",
+    "ink": "#1b2029",
+    "accent": "#2f6df0",
+    "accentHi": "#6f9bff",
+    "onAccent": "#ffffff",
+    "background": "#f7f9fccc"
   },
   "animation": {
-    "pressFadeMs": 120,
-    "releaseFadeMs": 160
+    "pressFadeMs": 60,
+    "releaseFadeMs": 140,
+    "connectFadeMs": 220,
+    "disconnectFadeMs": 320
   }
 }

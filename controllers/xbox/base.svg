@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" width="1000" height="680">
+  <style id="iv-palette">
+    .shell{fill:#2b303b}
+    .shell-hi{fill:#39404e}
+    .shell-lo{fill:#20242d}
+    .recess{fill:#171a21}
+    .cap{fill:#5b6478}
+    .cap-lo{fill:#434b5c}
+    .ink{fill:#cdd3e0}
+    .hot{fill:#4e8cff}
+    .s-cap{stroke:#5b6478;fill:none}
+    .s-cap-lo{stroke:#434b5c;fill:none}
+    .s-shell-lo{stroke:#20242d;fill:none}
+    .s-hot{stroke:#4e8cff;fill:none}
+  </style>
+
+  <defs>
+    <path id="xb-half" d="M500 170
+      C582 162 654 166 710 182
+      C790 204 846 250 852 306
+      C856 358 836 392 812 412
+      C834 474 838 556 800 608
+      C770 650 710 650 682 610
+      C644 556 622 492 606 452
+      C594 422 566 450 500 450 Z"/>
+    <path id="xb-bumper" d="M620 158 C680 162 730 176 800 216"/>
+    <path id="xb-trigger" d="M628 146 C688 150 738 164 806 204"/>
+  </defs>
+
+  <!-- ===== triggers (rest) ===== -->
+  <g class="s-shell-lo" stroke-width="30" stroke-linecap="round">
+    <use href="#xb-trigger"/>
+    <use href="#xb-trigger" transform="translate(1000,0) scale(-1,1)"/>
+  </g>
+
+  <!-- ===== bumpers (rest) ===== -->
+  <g class="s-cap-lo" stroke-width="28" stroke-linecap="round">
+    <use href="#xb-bumper"/>
+    <use href="#xb-bumper" transform="translate(1000,0) scale(-1,1)"/>
+  </g>
+
+  <!-- ===== shell ===== -->
+  <g>
+    <g class="shell">
+      <use href="#xb-half"/>
+      <use href="#xb-half" transform="translate(1000,0) scale(-1,1)"/>
+    </g>
+    <path class="shell-hi" opacity="0.4" d="M322 198 C402 174 598 174 678 198 C598 218 558 224 500 224 C442 224 402 218 322 198 Z"/>
+  </g>
+
+  <!-- ===== recesses ===== -->
+  <g class="recess">
+    <circle cx="336" cy="272" r="66"/>
+    <circle cx="600" cy="436" r="66"/>
+    <circle cx="400" cy="436" r="62"/>
+  </g>
+
+  <!-- ===== d-pad (rest) ===== -->
+  <g>
+    <path class="cap-lo" d="M384 388 h32 v32 h32 v32 h-32 v32 h-32 v-32 h-32 v-32 h32 Z"/>
+    <path class="cap" d="M388 392 h24 v32 h32 v24 h-32 v32 h-24 v-32 h-32 v-24 h32 Z"/>
+  </g>
+
+  <!-- ===== face buttons (rest) ===== -->
+  <g>
+    <circle class="cap-lo" cx="700" cy="226" r="32"/>
+    <circle class="cap" cx="700" cy="223" r="28"/>
+    <circle class="cap-lo" cx="640" cy="286" r="32"/>
+    <circle class="cap" cx="640" cy="283" r="28"/>
+    <circle class="cap-lo" cx="760" cy="286" r="32"/>
+    <circle class="cap" cx="760" cy="283" r="28"/>
+    <circle class="cap-lo" cx="700" cy="346" r="32"/>
+    <circle class="cap" cx="700" cy="343" r="28"/>
+    <text class="ink" x="700" y="232" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="700" text-anchor="middle">Y</text>
+    <text class="ink" x="640" y="292" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="700" text-anchor="middle">X</text>
+    <text class="ink" x="760" y="292" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="700" text-anchor="middle">B</text>
+    <text class="ink" x="700" y="352" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="700" text-anchor="middle">A</text>
+  </g>
+
+  <!-- ===== view / menu / guide (rest) ===== -->
+  <g>
+    <circle class="cap-lo" cx="452" cy="280" r="18"/>
+    <circle class="cap-lo" cx="548" cy="280" r="18"/>
+    <circle class="cap-lo" cx="500" cy="224" r="27"/>
+    <circle class="cap" cx="500" cy="222" r="23"/>
+  </g>
+</svg>

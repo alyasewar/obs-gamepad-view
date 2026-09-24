@@ -1,34 +1,26 @@
 {
-  "name": "Dark",
   "id": "dark",
-  "version": "1.0.0",
+  "name": "Dark",
+  "version": "2.0.0",
   "author": "OBS Input Visualizer",
-  "description": "High-contrast dark theme.",
-  "assets": {
-    "layout": "assets/template.svgz",
-    "buttons": "assets/abxy.svgz",
-    "dpad": "assets/dpad.svgz",
-    "sticks": "assets/stick.svgz",
-    "bumper": "assets/bumper.svgz",
-    "trigger": "assets/trigger.svgz",
-    "start_select": "assets/start-select.svgz",
-    "quadrant": "assets/quadrant.svgz",
-    "disconnected": "assets/disconnected.svgz"
-  },
+  "description": "High-contrast dark shell with a blue accent.",
   "palette": {
-    "background": "#14161b",
-    "surface": "#1f232b",
-    "stroke": "#e6e9ef",
+    "shell": "#2b303b",
+    "shellHi": "#39404e",
+    "shellLo": "#20242d",
+    "recess": "#171a21",
+    "cap": "#5b6478",
+    "capLo": "#434b5c",
+    "ink": "#cdd3e0",
     "accent": "#4e8cff",
-    "text": "#f2f4f8",
-    "pressed": "#4e8cff"
-  },
-  "typography": {
-    "font": "Satoshi",
-    "size": 14
+    "accentHi": "#8fb6ff",
+    "onAccent": "#0b1020",
+    "background": "#14161bcc"
   },
   "animation": {
-    "pressFadeMs": 120,
-    "releaseFadeMs": 160
+    "pressFadeMs": 60,
+    "releaseFadeMs": 140,
+    "connectFadeMs": 220,
+    "disconnectFadeMs": 320
   }
 }

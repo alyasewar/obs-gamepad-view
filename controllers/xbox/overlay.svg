@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Xbox overlay sheet (pressed-state art).
+
+  Rows 0..680 mirror base.svg exactly, so a pressed sprite sits at the same
+  coordinates as the rest-state art it covers: src rect == dst rect.
+
+  Rows 700..1000 are the spare strip, for sprites whose in-place bounding boxes
+  would collide (the bumper and trigger arcs overlap each other) or that the
+  renderer positions itself (stick caps). Those carry a separate dst in
+  layout.json. Shoulder sprites are masked by the shell outline so the overlay
+  only paints the sliver that is actually visible above the body; otherwise a
+  pressed bumper would pop out from behind the shell.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <style id="iv-palette">
+    .shell{fill:#2b303b}
+    .shell-hi{fill:#39404e}
+    .shell-lo{fill:#20242d}
+    .recess{fill:#171a21}
+    .cap{fill:#5b6478}
+    .cap-lo{fill:#434b5c}
+    .ink{fill:#cdd3e0}
+    .hot{fill:#4e8cff}
+    .hot-hi{fill:#8fb6ff}
+    .on-hot{fill:#0b1020}
+    .s-cap{stroke:#5b6478;fill:none}
+    .s-cap-lo{stroke:#434b5c;fill:none}
+    .s-shell-lo{stroke:#20242d;fill:none}
+    .s-hot{stroke:#4e8cff;fill:none}
+    .s-hot-hi{stroke:#8fb6ff;fill:none}
+  </style>
+
+  <defs>
+    <path id="xb-half-o" d="M500 170
+      C582 162 654 166 710 182
+      C790 204 846 250 852 306
+      C856 358 836 392 812 412
+      C834 474 838 556 800 608
+      C770 650 710 650 682 610
+      C644 556 622 492 606 452
+      C594 422 566 450 500 450 Z"/>
+    <path id="xb-bumper-o" d="M620 158 C680 162 730 176 800 216"/>
+    <path id="xb-trigger-o" d="M628 146 C688 150 738 164 806 204"/>
+
+    <!-- everything outside the shell body; keeps shoulder sprites tucked behind it -->
+    <mask id="xb-outside" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="1000">
+      <rect x="0" y="0" width="1000" height="1000" fill="#fff"/>
+      <g fill="#000">
+        <use href="#xb-half-o"/>
+        <use href="#xb-half-o" transform="translate(1000,0) scale(-1,1)"/>
+      </g>
+    </mask>
+  </defs>
+
+  <!-- ===== in-place: d-pad pressed ===== -->
+  <g class="hot">
+    <rect x="384" y="388" width="32" height="32"/>
+    <rect x="384" y="452" width="32" height="32"/>
+    <rect x="352" y="420" width="32" height="32"/>
+    <rect x="416" y="420" width="32" height="32"/>
+  </g>
+
+  <!-- ===== in-place: face buttons pressed ===== -->
+  <g>
+    <circle class="hot" cx="700" cy="226" r="32"/>
+    <circle class="hot-hi" cx="700" cy="226" r="24"/>
+    <circle class="hot" cx="640" cy="286" r="32"/>
+    <circle class="hot-hi" cx="640" cy="286" r="24"/>
+    <circle class="hot" cx="760" cy="286" r="32"/>
+    <circle class="hot-hi" cx="760" cy="286" r="24"/>
+    <circle class="hot" cx="700" cy="346" r="32"/>
+    <circle class="hot-hi" cx="700" cy="346" r="24"/>
+    <g class="on-hot" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="700" text-anchor="middle">
+      <text x="700" y="235">Y</text>
+      <text x="640" y="295">X</text>
+      <text x="760" y="295">B</text>
+      <text x="700" y="355">A</text>
+    </g>
+  </g>
+
+  <!-- ===== in-place: view / menu / guide pressed ===== -->
+  <g class="hot">
+    <circle cx="452" cy="280" r="18"/>
+    <circle cx="548" cy="280" r="18"/>
+    <circle cx="500" cy="224" r="27"/>
+  </g>
+
+  <!-- ===== strip: stick caps ===== -->
+  <g>
+    <circle class="cap-lo" cx="98" cy="758" r="52"/>
+    <circle class="cap" cx="98" cy="754" r="44"/>
+    <circle class="cap-lo" cx="98" cy="754" r="26"/>
+  </g>
+  <g>
+    <circle class="hot" cx="238" cy="758" r="52"/>
+    <circle class="hot-hi" cx="238" cy="754" r="44"/>
+    <circle class="hot" cx="238" cy="754" r="26"/>
+  </g>
+
+  <!-- ===== strip: bumpers pressed (dst 186,144 and 606,144) ===== -->
+  <g transform="translate(154,556)">
+    <g mask="url(#xb-outside)" class="s-hot" stroke-width="28" stroke-linecap="round">
+      <use href="#xb-bumper-o" transform="translate(1000,0) scale(-1,1)"/>
+    </g>
+  </g>
+  <g transform="translate(-46,556)">
+    <g mask="url(#xb-outside)" class="s-hot" stroke-width="28" stroke-linecap="round">
+      <use href="#xb-bumper-o"/>
+    </g>
+  </g>
+
+  <!-- ===== strip: triggers pressed (dst 179,131 and 613,131) ===== -->
+  <g transform="translate(161,669)">
+    <g mask="url(#xb-outside)" class="s-hot-hi" stroke-width="30" stroke-linecap="round">
+      <use href="#xb-trigger-o" transform="translate(1000,0) scale(-1,1)"/>
+    </g>
+  </g>
+  <g transform="translate(-53,669)">
+    <g mask="url(#xb-outside)" class="s-hot-hi" stroke-width="30" stroke-linecap="round">
+      <use href="#xb-trigger-o"/>
+    </g>
+  </g>
+</svg>

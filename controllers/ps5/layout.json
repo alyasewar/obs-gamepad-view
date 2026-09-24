@@ -1,0 +1,43 @@
+{
+  "id": "ps5",
+  "name": "PlayStation 5",
+  "canvas": { "w": 1000, "h": 680 },
+  "sheet": { "w": 1000, "h": 1000 },
+  "stickTravel": 22,
+  "labels": {
+    "face_down": "Cross",
+    "face_right": "Circle",
+    "face_left": "Square",
+    "face_up": "Triangle",
+    "back": "Create",
+    "start": "Options",
+    "guide": "PS",
+    "bumper_l": "L1",
+    "bumper_r": "R1",
+    "trigger_l": "L2",
+    "trigger_r": "R2",
+    "touchpad": "Touchpad"
+  },
+  "parts": {
+    "face_down":  { "src": [639, 285, 62, 62] },
+    "face_right": { "src": [693, 231, 62, 62] },
+    "face_left":  { "src": [585, 231, 62, 62] },
+    "face_up":    { "src": [639, 177, 62, 62] },
+    "dpad_up":    { "src": [313, 210, 34, 34] },
+    "dpad_down":  { "src": [313, 280, 34, 34] },
+    "dpad_left":  { "src": [278, 245, 34, 34] },
+    "dpad_right": { "src": [348, 245, 34, 34] },
+    "back":       { "src": [382, 172, 24, 34] },
+    "start":      { "src": [594, 172, 24, 34] },
+    "guide":      { "src": [480, 332, 40, 40] },
+    "touchpad":   { "src": [422, 188, 156, 100] },
+    "bumper_l":   { "src": [340, 700, 204, 88], "dst": [174, 138] },
+    "bumper_r":   { "src": [560, 700, 204, 88], "dst": [622, 138] },
+    "trigger_l":  { "src": [340, 800, 206, 92], "dst": [168, 112] },
+    "trigger_r":  { "src": [560, 800, 206, 92], "dst": [626, 112] }
+  },
+  "sticks": {
+    "left":  { "centre": [392, 446], "neutral": [40, 700, 116, 116], "pressed": [180, 700, 116, 116] },
+    "right": { "centre": [608, 446], "neutral": [40, 700, 116, 116], "pressed": [180, 700, 116, 116] }
+  }
+}
